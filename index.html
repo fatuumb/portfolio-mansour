@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>M. Mansour Mbengue &mdash; Génie Civil</title>
+<title>M. Mansour Mbengue &mdash; Genie Civil</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -29,7 +29,7 @@
     cursor: none;
   }
 
-  /* ── CURSOR ── */
+  /* CURSOR */
   .cursor {
     width: 8px; height: 8px;
     background: var(--terracotta); border-radius: 50%;
@@ -45,7 +45,7 @@
     transition: width 0.3s, height 0.3s, border-color 0.3s;
   }
 
-  /* ── NAV ── */
+  /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0;
     z-index: 100; padding: 24px 48px;
@@ -73,40 +73,7 @@
   }
   .nav-links a:hover { color: var(--clay); }
 
-  /* Hamburger */
-  .nav-toggle {
-    display: none;
-    flex-direction: column; justify-content: center; align-items: center;
-    gap: 5px; width: 36px; height: 36px;
-    background: none; border: none; cursor: pointer;
-    position: relative; z-index: 101;
-  }
-  .nav-toggle span {
-    display: block; width: 22px; height: 1px;
-    background: var(--clay); transition: all 0.3s;
-  }
-  .nav-toggle.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
-  .nav-toggle.open span:nth-child(2) { opacity: 0; }
-  .nav-toggle.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
-
-  /* Mobile nav drawer */
-  .nav-drawer {
-    display: none;
-    position: fixed; inset: 0;
-    background: rgba(26,23,20,0.98);
-    z-index: 99;
-    flex-direction: column; justify-content: center; align-items: center; gap: 40px;
-  }
-  .nav-drawer.open { display: flex; }
-  .nav-drawer a {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 32px; font-weight: 300;
-    color: var(--sand); text-decoration: none; letter-spacing: 0.1em;
-    transition: color 0.3s;
-  }
-  .nav-drawer a:hover { color: var(--clay); }
-
-  /* ── HERO ── */
+  /* HERO */
   .hero {
     min-height: 100vh;
     display: grid; grid-template-columns: 1fr 1fr;
@@ -123,7 +90,7 @@
   }
   .hero-name {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(42px, 6vw, 88px); font-weight: 300; line-height: 0.95;
+    font-size: clamp(52px, 6vw, 88px); font-weight: 300; line-height: 0.95;
     color: var(--white); margin-bottom: 32px;
     opacity: 0; animation: fadeUp 0.8s 0.5s forwards;
   }
@@ -133,7 +100,7 @@
     opacity: 0; animation: fadeUp 0.8s 0.7s forwards;
   }
   .hero-cta {
-    display: flex; gap: 16px; flex-wrap: wrap;
+    display: flex; gap: 16px;
     opacity: 0; animation: fadeUp 0.8s 0.9s forwards;
   }
   .btn {
@@ -180,7 +147,7 @@
     opacity: 0; animation: fadeIn 1s 1.2s forwards;
   }
 
-  /* ── SECTION BASE ── */
+  /* SECTION BASE */
   section { padding: 120px 0; }
   .section-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
   .section-tag {
@@ -194,12 +161,12 @@
   }
   .section-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(32px, 4vw, 56px); font-weight: 300;
+    font-size: clamp(36px, 4vw, 56px); font-weight: 300;
     color: var(--white); line-height: 1.1; margin-bottom: 64px;
   }
   .section-title em { font-style: italic; color: var(--clay); }
 
-  /* ── ABOUT ── */
+  /* ABOUT */
   .about { background: var(--ink); }
   .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
   .about-text p { color: var(--concrete); font-size: 13px; line-height: 1.9; margin-bottom: 20px; }
@@ -221,7 +188,7 @@
   }
   .stat-label { font-size: 11px; letter-spacing: 0.1em; color: var(--concrete); text-transform: uppercase; }
 
-  /* ── SKILLS ── */
+  /* SKILLS */
   .skills { background: var(--dark); }
   .skills-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
   .skill-group { background: var(--ink); padding: 48px; }
@@ -243,9 +210,10 @@
   }
   .skill-fill.animate { width: var(--w); }
 
-  /* ── PROJECTS ── */
+  /* ===== PROJECTS ===== */
   .projects { background: var(--dark); }
 
+  /* Projet complet : image principale + galerie + description */
   .project-block {
     margin-bottom: 4px;
     background: var(--ink);
@@ -253,68 +221,49 @@
   }
   .project-block:last-child { margin-bottom: 0; }
 
-  /* Layout desktop : texte | images côte à côte */
   .project-block-inner {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    min-height: 560px;
   }
   .project-block-inner.reverse { direction: rtl; }
   .project-block-inner.reverse > * { direction: ltr; }
 
-  /* Colonne images : les images s'affichent en entier, empilées */
+  /* Colonne images */
   .project-images {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    background: var(--dark);
+    display: grid;
+    gap: 2px;
+    overflow: hidden;
+  }
+  .project-images.one   { grid-template-rows: 1fr; }
+  .project-images.two   { grid-template-rows: 1fr 1fr; }
+  .project-images.three { grid-template-rows: 2fr 1fr; }
+
+  .project-images.three .row-bottom {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
   }
 
-  /* Image principale plus grande */
-  .proj-img-main {
-    position: relative;
-    overflow: hidden;
-    background: var(--dark);
-    flex: 0 0 auto;
-  }
-  .proj-img-main img {
-    width: 100%;
-    height: auto;
-    display: block;
-    filter: saturate(0.7) brightness(0.9);
-    transition: filter 0.5s;
-  }
-  .proj-img-main:hover img { filter: saturate(1) brightness(1); }
-
-  /* Rangée de miniatures */
-  .proj-thumbs {
-    display: flex;
-    gap: 3px;
-  }
-  .proj-thumb {
-    position: relative;
-    flex: 1;
-    overflow: hidden;
+  .proj-img {
+    position: relative; overflow: hidden;
     background: var(--dark);
   }
-  .proj-thumb img {
-    width: 100%;
-    height: auto;
+  .proj-img img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.7s ease; filter: saturate(0.65) brightness(0.85);
     display: block;
-    filter: saturate(0.6) brightness(0.85);
-    transition: filter 0.5s;
   }
-  .proj-thumb:hover img { filter: saturate(1) brightness(1); }
+  .proj-img:hover img { transform: scale(1.06); filter: saturate(0.9) brightness(0.7); }
 
   .proj-img-label {
-    position: absolute; bottom: 8px; left: 8px;
+    position: absolute; bottom: 10px; left: 10px;
     font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--sand); background: rgba(26,23,20,0.75); padding: 3px 8px;
+    color: var(--sand); background: rgba(26,23,20,0.7); padding: 3px 8px;
   }
 
   /* Colonne texte */
   .project-info {
     display: flex; flex-direction: column; justify-content: center;
-    padding: 56px 52px;
+    padding: 64px 56px;
   }
   .project-num-badge {
     font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
@@ -322,7 +271,7 @@
   }
   .project-name {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(26px, 3vw, 42px); font-weight: 300;
+    font-size: clamp(28px, 3vw, 42px); font-weight: 300;
     color: var(--white); line-height: 1.15; margin-bottom: 12px;
   }
   .project-name em { font-style: italic; color: var(--clay); }
@@ -335,7 +284,9 @@
     color: var(--concrete); font-size: 12px; line-height: 1.9; margin-bottom: 32px;
   }
   .project-desc strong { color: var(--clay); font-weight: 500; }
-  .project-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .project-tags {
+    display: flex; flex-wrap: wrap; gap: 8px;
+  }
   .tag {
     font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
     padding: 5px 12px;
@@ -343,7 +294,7 @@
     color: var(--clay);
   }
 
-  /* ── EXPERIENCE ── */
+  /* EXPERIENCE */
   .experience { background: var(--ink); }
   .exp-grid { display: grid; gap: 2px; }
   .exp-item {
@@ -366,12 +317,12 @@
   .exp-role { font-size: 11px; letter-spacing: 0.1em; color: var(--clay); text-transform: uppercase; margin-bottom: 16px; }
   .exp-desc { font-size: 12px; color: var(--concrete); line-height: 1.7; }
 
-  /* ── CONTACT ── */
+  /* CONTACT */
   .contact { background: var(--dark); }
   .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
   .contact-heading {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(36px, 5vw, 72px); font-weight: 300;
+    font-size: clamp(40px, 5vw, 72px); font-weight: 300;
     color: var(--white); line-height: 1; margin-bottom: 28px;
   }
   .contact-heading em { font-style: italic; color: var(--clay); }
@@ -392,7 +343,7 @@
   .contact-value a { color: var(--sand); text-decoration: none; }
   .contact-value a:hover { color: var(--clay); }
 
-  /* ── FOOTER ── */
+  /* FOOTER */
   footer {
     background: var(--ink); padding: 40px 48px;
     display: flex; justify-content: space-between; align-items: center;
@@ -402,7 +353,7 @@
   .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 300; color: var(--clay); letter-spacing: 0.25em; }
   .footer-meta { font-size: 11px; color: var(--concrete); }
 
-  /* ── REVEAL ── */
+  /* REVEAL */
   .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
@@ -415,102 +366,26 @@
     to   { opacity: 1; }
   }
 
-  /* ════════════════════════════════════════
-     RESPONSIVE — TABLETTE (≤ 960px)
-  ════════════════════════════════════════ */
+  /* MOBILE */
   @media (max-width: 960px) {
-    body { cursor: auto; }
-
-    /* Nav */
     nav { padding: 20px 24px; }
     .nav-links { display: none; }
-    .nav-toggle { display: flex; }
-
-    /* Hero */
     .hero { grid-template-columns: 1fr; min-height: auto; }
-    .hero-left { padding: 110px 24px 48px; }
-    .hero-right { height: auto; }
-    .hero-grid {
-      position: relative; inset: auto;
-      display: grid; grid-template-rows: auto auto; gap: 2px;
-      padding: 0;
-      height: auto;
-    }
-    .hero-img-wrap { height: 260px; }
-    .hero-img-wrap img { object-fit: cover; height: 100%; }
-    .hero-stat { padding: 40px; }
-    .deco-line { display: none; }
-
-    /* Sections */
-    section { padding: 80px 0; }
-    .section-inner { padding: 0 24px; }
-    .section-title { margin-bottom: 40px; }
-
-    /* About */
-    .about-grid { grid-template-columns: 1fr; gap: 48px; }
-
-    /* Skills */
+    .hero-left { padding: 100px 24px 60px; }
+    .hero-right { height: 320px; }
+    .hero-grid { padding: 0; }
+    .about-grid, .contact-layout { grid-template-columns: 1fr; gap: 48px; }
+    .project-block-inner, .project-block-inner.reverse { grid-template-columns: 1fr; direction: ltr; }
+    .project-info { padding: 40px 32px; }
+    .exp-item { grid-template-columns: 1fr; gap: 16px; }
     .skills-layout { grid-template-columns: 1fr; }
-    .skill-group { padding: 32px 24px; }
-
-    /* Projects — texte au-dessus, images en dessous */
-    .project-block-inner,
-    .project-block-inner.reverse {
-      grid-template-columns: 1fr;
-      direction: ltr;
-    }
-    /* Sur tablette, texte en premier toujours */
-    .project-block-inner.reverse .project-info { order: -1; }
-    .project-block-inner.reverse .project-images { order: 1; }
-
-    .project-info { padding: 40px 28px; }
-
-    /* Experience */
-    .exp-item {
-      grid-template-columns: 1fr;
-      gap: 12px;
-      padding: 32px 24px;
-    }
-
-    /* Contact */
-    .contact-layout { grid-template-columns: 1fr; gap: 48px; }
-
-    /* Footer */
+    .section-inner { padding: 0 24px; }
+    section { padding: 80px 0; }
     footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px 24px; }
   }
-
-  /* ════════════════════════════════════════
-     RESPONSIVE — MOBILE (≤ 600px)
-  ════════════════════════════════════════ */
   @media (max-width: 600px) {
-    .hero-left { padding: 100px 20px 40px; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
     .hero-cta { flex-direction: column; }
-    .btn { width: 100%; text-align: center; }
-
-    .section-inner { padding: 0 20px; }
-    section { padding: 64px 0; }
-
-    .stats-grid { grid-template-columns: 1fr 1fr; gap: 2px; }
-    .stat-card { padding: 20px; }
-    .stat-num { font-size: 36px; }
-
-    .skill-group { padding: 24px 20px; }
-    .skill-bar { width: 80px; }
-
-    .project-info { padding: 32px 20px; }
-    .project-desc { font-size: 12px; }
-
-    /* Miniatures en colonne sur très petit écran */
-    .proj-thumbs { flex-direction: column; }
-
-    .exp-item { padding: 24px 20px; }
-    .exp-company { font-size: 18px; }
-
-    .contact-item { gap: 16px; }
-    .contact-value { font-size: 12px; word-break: break-all; }
-
-    footer { padding: 24px 20px; }
-    .footer-meta { display: none; }
   }
 </style>
 </head>
@@ -524,34 +399,22 @@
   <div class="nav-logo">M. Mbengue</div>
   <ul class="nav-links">
     <li><a href="#about">Profil</a></li>
-    <li><a href="#skills">Compétences</a></li>
+    <li><a href="#skills">Competences</a></li>
     <li><a href="#projects">Projets</a></li>
-    <li><a href="#experience">Expérience</a></li>
+    <li><a href="#experience">Experience</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <button class="nav-toggle" id="navToggle" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
 </nav>
-
-<!-- Drawer mobile -->
-<div class="nav-drawer" id="navDrawer">
-  <a href="#about" class="drawer-link">Profil</a>
-  <a href="#skills" class="drawer-link">Compétences</a>
-  <a href="#projects" class="drawer-link">Projets</a>
-  <a href="#experience" class="drawer-link">Expérience</a>
-  <a href="#contact" class="drawer-link">Contact</a>
-</div>
 
 <!-- ═══ HERO ═══ -->
 <section class="hero">
   <div class="hero-left">
-    <p class="hero-tag">Assistant Ingénieur &mdash; Génie Civil</p>
+    <p class="hero-tag">Assistant Ingenieur &mdash; Genie Civil</p>
     <h1 class="hero-name">
       Mouhamadou<br>Mansour<br><em>Mbengue</em>
     </h1>
     <p class="hero-desc">
-      Conception, structure, terrain. Entre fonctionnalité et modernité, chaque projet est une opportunité de créer des espaces qui durent.
+      Conception, structure, terrain. Entre fonctionnalite et modernite, chaque projet est une opportunite de creer des espaces qui durent.
     </p>
     <div class="hero-cta">
       <a href="#projects" class="btn btn-primary">Voir les projets</a>
@@ -566,7 +429,7 @@
       </div>
       <div class="hero-stat">
         <div class="hero-stat-num">5</div>
-        <div class="hero-stat-label">Projets conçus</div>
+        <div class="hero-stat-label">Projets concus</div>
       </div>
     </div>
   </div>
@@ -577,18 +440,18 @@
 <section class="about" id="about">
   <div class="section-inner">
     <div class="section-tag reveal">Profil</div>
-    <h2 class="section-title reveal">Un ingénieur<br><em>de terrain</em></h2>
+    <h2 class="section-title reveal">Un ingenieur<br><em>de terrain</em></h2>
     <div class="about-grid">
       <div class="about-text reveal">
-        <p>Passionné par la <strong>conception et la réalisation d'infrastructures</strong>, je combine un solide sens du terrain avec une maîtrise des outils de conception modernes. Chaque projet est une occasion de traduire des plans en réalités concrètes et durables.</p>
-        <p>Formé en Génie Civil à <strong>Batisup</strong>, j'ai acquis une expérience pratique à travers plusieurs stages en chantier, bureau d'études et laboratoire &mdash; couvrant l'intégralité du cycle de vie d'un projet de construction.</p>
-        <p>Mon approche est fondée sur la rigueur technique, l'esprit entrepreneurial et un engagement sans faille envers la qualité des ouvrages réalisés.</p>
+        <p>Passionne par la <strong>conception et la realisation d'infrastructures</strong>, je combine un solide sens du terrain avec une maitrise des outils de conception modernes. Chaque projet est une occasion de traduire des plans en realites concretes et durables.</p>
+        <p>Forme en Genie Civil a <strong>Batisup</strong>, j'ai acquis une experience pratique a travers plusieurs stages en chantier, bureau d'etudes et laboratoire &mdash; couvrant l'integralite du cycle de vie d'un projet de construction.</p>
+        <p>Mon approche est fondee sur la rigueur technique, l'esprit entrepreneurial et un engagement sans faille envers la qualite des ouvrages realises.</p>
       </div>
       <div class="stats-grid reveal">
-        <div class="stat-card"><div class="stat-num">5+</div><div class="stat-label">Stages réalisés</div></div>
-        <div class="stat-card"><div class="stat-num">5</div><div class="stat-label">Projets conçus</div></div>
-        <div class="stat-card"><div class="stat-num">2D</div><div class="stat-label">&amp; 3D maîtrisé</div></div>
-        <div class="stat-card"><div class="stat-num">R+2</div><div class="stat-label">Niveau max conçu</div></div>
+        <div class="stat-card"><div class="stat-num">5+</div><div class="stat-label">Stages realises</div></div>
+        <div class="stat-card"><div class="stat-num">5</div><div class="stat-label">Projets concus</div></div>
+        <div class="stat-card"><div class="stat-num">2D</div><div class="stat-label">&amp; 3D maitrise</div></div>
+        <div class="stat-card"><div class="stat-num">R+2</div><div class="stat-label">Niveau max concu</div></div>
       </div>
     </div>
   </div>
@@ -597,7 +460,7 @@
 <!-- ═══ SKILLS ═══ -->
 <section class="skills" id="skills">
   <div class="section-inner">
-    <div class="section-tag reveal">Compétences</div>
+    <div class="section-tag reveal">Competences</div>
     <h2 class="section-title reveal">Outils &amp;<br><em>Expertises</em></h2>
     <div class="skills-layout reveal">
       <div class="skill-group">
@@ -608,7 +471,7 @@
         <div class="skill-item"><span class="skill-name">Graitec</span><div class="skill-bar"><div class="skill-fill" style="--w:65%"></div></div></div>
       </div>
       <div class="skill-group">
-        <div class="skill-group-title">Compétences techniques</div>
+        <div class="skill-group-title">Competences techniques</div>
         <div class="skill-item"><span class="skill-name">Conception plans 2D/3D</span><div class="skill-bar"><div class="skill-fill" style="--w:92%"></div></div></div>
         <div class="skill-item"><span class="skill-name">Dimensionnement ouvrages</span><div class="skill-bar"><div class="skill-fill" style="--w:75%"></div></div></div>
         <div class="skill-item"><span class="skill-name">Suivi &amp; gestion chantier</span><div class="skill-bar"><div class="skill-fill" style="--w:85%"></div></div></div>
@@ -618,7 +481,9 @@
   </div>
 </section>
 
-<!-- ═══ PROJETS ═══ -->
+<!-- ═══════════════════════════════════════════════════════════
+     PROJETS DE CONCEPTION
+════════════════════════════════════════════════════════════ -->
 <section class="projects" id="projects">
   <div class="section-inner">
     <div class="section-tag reveal">Réalisations</div>
@@ -628,22 +493,24 @@
   <!-- ── PROJET 01 : Maison R+1 Keur Massar ── -->
   <div class="project-block reveal">
     <div class="project-block-inner">
-      <div class="project-images">
-        <div class="proj-img-main">
+      <!-- Images : image1, image4, image3, image2 -->
+      <div class="project-images three">
+        <div class="proj-img">
           <img src="images/image1.jpeg" alt="Maison R+1 Keur Massar vue 3D">
-          <div class="proj-img-label">Vue 3D façade</div>
+          <div class="proj-img-label"></div>
         </div>
-        <div class="proj-thumbs">
-          <div class="proj-thumb">
+        <div class="row-bottom">
+          <div class="proj-img">
             <img src="images/image4.jpeg" alt="Plan RDC Keur Massar">
-            <div class="proj-img-label">Plan RDC</div>
+            <div class="proj-img-label"></div>
           </div>
-          <div class="proj-thumb">
+          <div class="proj-img">
             <img src="images/image3.jpeg" alt="Plan étage Keur Massar">
-            <div class="proj-img-label">Plan étage</div>
+            <div class="proj-img-label"></div>
           </div>
         </div>
       </div>
+      <!-- Texte -->
       <div class="project-info">
         <div class="project-num-badge">Projet 01</div>
         <h3 class="project-name">Maison <em>R+1</em><br>Keur Massar</h3>
@@ -668,6 +535,7 @@
   <!-- ── PROJET 02 : Immeuble R+2 Dakar ── -->
   <div class="project-block reveal">
     <div class="project-block-inner reverse">
+      <!-- Texte -->
       <div class="project-info">
         <div class="project-num-badge">Projet 02</div>
         <h3 class="project-name">Immeuble <em>R+2</em><br>Dakar</h3>
@@ -684,19 +552,20 @@
           <span class="tag">Archicad</span>
         </div>
       </div>
-      <div class="project-images">
-        <div class="proj-img-main">
+      <!-- Images : image7, image5, image6 -->
+      <div class="project-images three">
+        <div class="proj-img">
           <img src="images/image7.jpeg" alt="Immeuble R+2 Dakar vue façade">
-          <div class="proj-img-label">Vue 3D façade</div>
+          <div class="proj-img-label"></div>
         </div>
-        <div class="proj-thumbs">
-          <div class="proj-thumb">
-            <img src="images/imge5.jpeg" alt="Vue intérieure Immeuble R+2">
-            <div class="proj-img-label">Vue intérieure</div>
+        <div class="row-bottom">
+          <div class="proj-img">
+            <img src="images/image5.jpeg" alt="Vue intérieure Immeuble R+2">
+            <div class="proj-img-label"></div>
           </div>
-          <div class="proj-thumb">
+          <div class="proj-img">
             <img src="images/image6.jpeg" alt="Vue perspective Immeuble R+2">
-            <div class="proj-img-label">Vue perspective</div>
+            <div class="proj-img-label"></div>
           </div>
         </div>
       </div>
@@ -706,22 +575,24 @@
   <!-- ── PROJET 03 : Villa 150m² Mbour ── -->
   <div class="project-block reveal">
     <div class="project-block-inner">
-      <div class="project-images">
-        <div class="proj-img-main">
+      <!-- Images : image8, image9, test -->
+      <div class="project-images three">
+        <div class="proj-img">
           <img src="images/image8.jpeg" alt="Villa 150m² Mbour vue façade">
-          <div class="proj-img-label">Vue 3D façade</div>
+          <div class="proj-img-label"></div>
         </div>
-        <div class="proj-thumbs">
-          <div class="proj-thumb">
-            <img src="images/image9.jpeg" alt="Vue latérale Villa 150m²">
-            <div class="proj-img-label">Vue latérale</div>
+        <div class="row-bottom">
+          <div class="proj-img">
+            <img src="images/image9.jpeg" alt="Villa 150m²">
+            <div class="proj-img-label"></div>
           </div>
-          <div class="proj-thumb">
+          <div class="proj-img">
             <img src="images/test.jpeg" alt="Vue intérieure Villa 150m²">
-            <div class="proj-img-label">Vue intérieure</div>
+            <div class="proj-img-label"></div>
           </div>
         </div>
       </div>
+      <!-- Texte -->
       <div class="project-info">
         <div class="project-num-badge">Projet 03</div>
         <h3 class="project-name">Villa <em>Mbour</em><br>150 m&sup2;</h3>
@@ -743,6 +614,7 @@
   <!-- ── PROJET 04 : Villa 339m² Mbour ── -->
   <div class="project-block reveal">
     <div class="project-block-inner reverse">
+      <!-- Texte -->
       <div class="project-info">
         <div class="project-num-badge">Projet 04</div>
         <h3 class="project-name">Villa <em>Spacieuse</em><br>Mbour</h3>
@@ -759,19 +631,20 @@
           <span class="tag">AutoCAD</span>
         </div>
       </div>
-      <div class="project-images">
-        <div class="proj-img-main">
+      <!-- Images : image.png + villa1..4 (à uploader) -->
+      <div class="project-images three">
+        <div class="proj-img">
           <img src="images/image.png" alt="Villa 339m² Mbour vue principale">
-          <div class="proj-img-label">Vue 3D façade</div>
+          <div class="proj-img-label"></div>
         </div>
-        <div class="proj-thumbs">
-          <div class="proj-thumb">
-            <img src="images/vila1.jpeg" alt="Vue villa 339m² angle 1">
-            <div class="proj-img-label">Vue latérale</div>
+        <div class="row-bottom">
+          <div class="proj-img">
+            <img src="images/villa1.jpeg" alt="Vue villa 339m² angle 1">
+            <div class="proj-img-label">  </div>
           </div>
-          <div class="proj-thumb">
+          <div class="proj-img">
             <img src="images/villa2.jpeg" alt="Vue villa 339m² angle 2">
-            <div class="proj-img-label">Plan RDC</div>
+            <div class="proj-img-label"></div>
           </div>
         </div>
       </div>
@@ -781,22 +654,24 @@
   <!-- ── PROJET 05 : Maison Basse Dakar ── -->
   <div class="project-block reveal">
     <div class="project-block-inner">
-      <div class="project-images">
-        <div class="proj-img-main">
+      <!-- Images : image10, image11, image12 -->
+      <div class="project-images three">
+        <div class="proj-img">
           <img src="images/image10.jpeg" alt="Maison basse Dakar vue 3D">
-          <div class="proj-img-label">Vue 3D façade</div>
+          <div class="proj-img-label"></div>
         </div>
-        <div class="proj-thumbs">
-          <div class="proj-thumb">
+        <div class="row-bottom">
+          <div class="proj-img">
             <img src="images/image11.jpeg" alt="Vue de face maison basse">
-            <div class="proj-img-label">Vue de face</div>
+            <div class="proj-img-label"></div>
           </div>
-          <div class="proj-thumb">
-            <img src="images/image12.jpeg" alt="Vue intérieure maison basse">
-            <div class="proj-img-label">Vue intérieure</div>
+          <div class="proj-img">
+            <img src="images/image12.jpeg" alt="Plan masse maison basse">
+            <div class="proj-img-label"></div>
           </div>
         </div>
       </div>
+      <!-- Texte -->
       <div class="project-info">
         <div class="project-num-badge">Projet 05</div>
         <h3 class="project-name">Maison <em>Basse</em><br>Dakar</h3>
@@ -822,24 +697,24 @@
 <section class="experience" id="experience">
   <div class="section-inner">
     <div class="section-tag reveal">Parcours</div>
-    <h2 class="section-title reveal">Expériences<br><em>professionnelles</em></h2>
+    <h2 class="section-title reveal">Experiences<br><em>professionnelles</em></h2>
     <div class="exp-grid">
 
       <div class="exp-item reveal">
         <div class="exp-date">Juin 2025<br>&ndash; Juil. 2026</div>
         <div>
           <div class="exp-company">Licorne Group</div>
-          <div class="exp-role">Stage Bureau d'Études</div>
-          <p class="exp-desc">Conception et vérification de plans architecturaux et structuraux. Participation à la production de documents techniques, métrés et notes de calcul. Collaboration avec les équipes d'ingénierie sur des projets résidentiels.</p>
+          <div class="exp-role">Stage Bureau d'Etudes</div>
+          <p class="exp-desc">Conception et verification de plans architecturaux et structuraux. Participation a la production de documents techniques, metres et notes de calcul. Collaboration avec les equipes d'ingenierie sur des projets residentiels.</p>
         </div>
       </div>
 
       <div class="exp-item reveal">
-        <div class="exp-date">Déc. 2025<br>&ndash; Mar. 2026</div>
+        <div class="exp-date">Dec. 2025<br>&ndash; Mar. 2026</div>
         <div>
-          <div class="exp-company">Truelle d'Or Sénégalaise</div>
-          <div class="exp-role">Stage Bureau d'Études</div>
-          <p class="exp-desc">Élaboration de plans de construction, coordination avec les architectes et les ingénieurs structures. Participation au suivi technique de projets résidentiels et commerciaux en cours de réalisation.</p>
+          <div class="exp-company">Truelle d'Or Senegalaise</div>
+          <div class="exp-role">Stage Bureau d'Etudes</div>
+          <p class="exp-desc">Elaboration de plans de construction, coordination avec les architectes et les ingenieurs structures. Participation au suivi technique de projets residentiels et commerciaux en cours de realisation.</p>
         </div>
       </div>
 
@@ -848,16 +723,16 @@
         <div>
           <div class="exp-company">Laboratoire BTP</div>
           <div class="exp-role">Stage Laboratoire</div>
-          <p class="exp-desc">Tests et analyses de matériaux de construction. Contrôle qualité des bétons, essais de résistance et caractérisation des sols. Rédaction de rapports d'essais conformes aux normes en vigueur.</p>
+          <p class="exp-desc">Tests et analyses de materiaux de construction. Controle qualite des betons, essais de resistance et caracterisation des sols. Redaction de rapports d'essais conformes aux normes en vigueur.</p>
         </div>
       </div>
 
       <div class="exp-item reveal">
-        <div class="exp-date">Août<br>&ndash; Oct. 2023</div>
+        <div class="exp-date">Aout<br>&ndash; Oct. 2023</div>
         <div>
           <div class="exp-company">CAFEG</div>
           <div class="exp-role">Stage Chantier</div>
-          <p class="exp-desc">Suivi de chantier sur des ouvrages de génie civil. Contrôle de l'exécution des travaux, coordination avec les équipes terrain et respect des délais et des normes de sécurité.</p>
+          <p class="exp-desc">Suivi de chantier sur des ouvrages de genie civil. Controle de l'execution des travaux, coordination avec les equipes terrain et respect des delais et des normes de securite.</p>
         </div>
       </div>
 
@@ -866,7 +741,7 @@
         <div>
           <div class="exp-company">EBX BTP</div>
           <div class="exp-role">Stage Chantier</div>
-          <p class="exp-desc">Assistance à la maîtrise d'œuvre. Lecture et interprétation de plans, suivi des travaux de gros œuvre et participation aux réunions de chantier hebdomadaires.</p>
+          <p class="exp-desc">Assistance a la maitrise d'oeuvre. Lecture et interpretation de plans, suivi des travaux de gros oeuvre et participation aux reunions de chantier hebdomadaires.</p>
         </div>
       </div>
 
@@ -874,8 +749,8 @@
         <div class="exp-date">Formation</div>
         <div>
           <div class="exp-company">Batisup &mdash; Dakar</div>
-          <div class="exp-role">Licence en Génie Civil</div>
-          <p class="exp-desc">Formation complète en génie civil couvrant la mécanique des structures, le béton armé, la topographie, la géotechnique et la gestion de projet. Acquisition des bases théoriques et pratiques pour la conception et la réalisation d'ouvrages.</p>
+          <div class="exp-role">Licence en Genie Civil</div>
+          <p class="exp-desc">Formation complete en genie civil couvrant la mecanique des structures, le beton arme, la topographie, la geotechnique et la gestion de projet. Acquisition des bases theoriques et pratiques pour la conception et la realisation d'ouvrages.</p>
         </div>
       </div>
 
@@ -891,7 +766,7 @@
         <div class="section-tag">Contact</div>
         <h2 class="contact-heading">Travaillons<br><em>ensemble</em></h2>
         <p class="contact-lead">
-          Disponible pour des collaborations sur des projets de conception architecturale, suivi de chantier ou études techniques en génie civil.
+          Disponible pour des collaborations sur des projets de conception architecturale, suivi de chantier ou etudes techniques en genie civil.
         </p>
       </div>
       <div class="contact-info reveal">
@@ -906,21 +781,21 @@
           <div class="contact-icon">&#9711;</div>
           <div>
             <div class="contact-label">Localisation</div>
-            <div class="contact-value">Dakar, Sénégal</div>
+            <div class="contact-value">Dakar, Senegal</div>
           </div>
         </div>
         <div class="contact-item">
           <div class="contact-icon">&#9672;</div>
           <div>
-            <div class="contact-label">Spécialités</div>
+            <div class="contact-label">Specialites</div>
             <div class="contact-value">Conception 2D/3D &middot; Suivi chantier &middot; Structure</div>
           </div>
         </div>
         <div class="contact-item">
           <div class="contact-icon">&#9671;</div>
           <div>
-            <div class="contact-label">Disponibilité</div>
-            <div class="contact-value">Ouvert aux opportunités</div>
+            <div class="contact-label">Disponibilite</div>
+            <div class="contact-value">Ouvert aux opportunites</div>
           </div>
         </div>
       </div>
@@ -930,65 +805,43 @@
 
 <!-- ═══ FOOTER ═══ -->
 <footer>
-  <div class="footer-copy">&copy; 2026 Mouhamadou Mansour Mbengue. Tous droits réservés.</div>
+  <div class="footer-copy">&copy; 2026 Mouhamadou Mansour Mbengue. Tous droits reserves.</div>
   <div class="footer-logo">MMM</div>
-  <div class="footer-meta">Génie Civil &middot; Dakar</div>
+  <div class="footer-meta">Genie Civil &middot; Dakar</div>
 </footer>
 
 <script>
-  /* ── Curseur custom (desktop uniquement) ── */
+  /* Curseur */
   var cursor = document.getElementById('cursor');
   var ring   = document.getElementById('cursorRing');
   var mx = 0, my = 0, rx = 0, ry = 0;
 
-  if (!('ontouchstart' in window)) {
-    document.addEventListener('mousemove', function(e) {
-      mx = e.clientX; my = e.clientY;
-      cursor.style.transform = 'translate(' + (mx-4) + 'px,' + (my-4) + 'px)';
-    });
-    (function loop() {
-      rx += (mx - rx) * 0.12;
-      ry += (my - ry) * 0.12;
-      ring.style.transform = 'translate(' + (rx-18) + 'px,' + (ry-18) + 'px)';
-      requestAnimationFrame(loop);
-    })();
-    document.querySelectorAll('a,button,.project-block,.stat-card,.exp-item').forEach(function(el) {
-      el.addEventListener('mouseenter', function() { ring.style.width='60px'; ring.style.height='60px'; ring.style.borderColor='var(--terracotta)'; });
-      el.addEventListener('mouseleave', function() { ring.style.width='36px'; ring.style.height='36px'; ring.style.borderColor='var(--clay)'; });
-    });
-  } else {
-    document.body.style.cursor = 'auto';
-    cursor.style.display = 'none';
-    ring.style.display   = 'none';
-  }
-
-  /* ── Menu hamburger mobile ── */
-  var toggle = document.getElementById('navToggle');
-  var drawer = document.getElementById('navDrawer');
-
-  toggle.addEventListener('click', function() {
-    toggle.classList.toggle('open');
-    drawer.classList.toggle('open');
+  document.addEventListener('mousemove', function(e) {
+    mx = e.clientX; my = e.clientY;
+    cursor.style.transform = 'translate(' + (mx-4) + 'px,' + (my-4) + 'px)';
+  });
+  (function loop() {
+    rx += (mx - rx) * 0.12;
+    ry += (my - ry) * 0.12;
+    ring.style.transform = 'translate(' + (rx-18) + 'px,' + (ry-18) + 'px)';
+    requestAnimationFrame(loop);
+  })();
+  document.querySelectorAll('a,button,.project-block,.stat-card,.exp-item').forEach(function(el) {
+    el.addEventListener('mouseenter', function() { ring.style.width='60px'; ring.style.height='60px'; ring.style.borderColor='var(--terracotta)'; });
+    el.addEventListener('mouseleave', function() { ring.style.width='36px'; ring.style.height='36px'; ring.style.borderColor='var(--clay)'; });
   });
 
-  document.querySelectorAll('.drawer-link').forEach(function(link) {
-    link.addEventListener('click', function() {
-      toggle.classList.remove('open');
-      drawer.classList.remove('open');
-    });
-  });
-
-  /* ── Scroll reveal ── */
+  /* Scroll reveal */
   var obs = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
       if (!entry.isIntersecting) return;
       entry.target.classList.add('visible');
       entry.target.querySelectorAll('.skill-fill').forEach(function(b) { b.classList.add('animate'); });
     });
-  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
   document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
 
-  /* ── Smooth scroll ── */
+  /* Smooth scroll */
   document.querySelectorAll('a[href^="#"]').forEach(function(a) {
     a.addEventListener('click', function(e) {
       var t = document.querySelector(a.getAttribute('href'));
@@ -997,6 +850,13 @@
       t.scrollIntoView({ behavior: 'smooth' });
     });
   });
+
+  /* Mobile : desactiver curseur custom */
+  if ('ontouchstart' in window) {
+    document.body.style.cursor = 'auto';
+    cursor.style.display = 'none';
+    ring.style.display   = 'none';
+  }
 </script>
 </body>
 </html>
